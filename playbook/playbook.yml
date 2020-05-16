@@ -1,0 +1,11 @@
+---
+  
+- name: Starting Deploy 
+  hosts: servidores
+  tasks:
+    - name: Creating Docker container with Vagrant and VirtualBox
+      command: vagrant up
+      args:
+        chdir: /projetos/iac/playbook
+        
+...

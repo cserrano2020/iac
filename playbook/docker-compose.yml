@@ -1,0 +1,27 @@
+version: '3.5'
+services:
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: Dockerfile  
+    networks:
+      - network
+
+  https-portal:
+    container_name: https-portal
+    image: steveltn/https-portal:1
+    ports:
+      - '80:80'
+      - '443:443'
+    links:
+      - app
+    restart: always
+    environment:
+      DOMAINS: 'serasa.test.local -> http://app:8080'
+      STAGE: local
+    networks:
+      - network
+      
+networks:
+  network:      

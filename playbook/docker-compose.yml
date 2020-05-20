@@ -4,7 +4,8 @@ services:
     container_name: app
     build:
       context: .
-      dockerfile: Dockerfile  
+      dockerfile: Dockerfile 
+    restart: always      
     networks:
       - network
 
@@ -18,7 +19,7 @@ services:
       - app
     restart: always
     environment:
-      DOMAINS: 'serasa.test.local -> http://app:8080'
+      DOMAINS: 'localhost -> http://app:8080'
       STAGE: local
     networks:
       - network

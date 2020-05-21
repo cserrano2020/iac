@@ -19,7 +19,7 @@ services:
       - app
     restart: always
     environment:
-      DOMAINS: 'localhost -> http://app:8080'
+      DOMAINS: 'localhost -> http://app:8080, serasa.test.local -> http://app:8080'
       STAGE: local
     networks:
       - network

@@ -1,0 +1,8 @@
+---
+- name: Starting Deploy
+  hosts: servidores
+  tasks:
+    - name: Reload Docker container with Vagrant and VirtualBox
+      command: vagrant reload
+      args:
+        chdir: /projetos/iac/serasa

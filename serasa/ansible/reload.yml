@@ -3,6 +3,6 @@
   hosts: servidores
   tasks:
     - name: Reload Docker container with Vagrant and VirtualBox
-      command: vagrant reload
+      command: vagrant reload app
       args:
         chdir: /projetos/iac/serasa

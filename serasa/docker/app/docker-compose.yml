@@ -4,7 +4,7 @@ services:
     container_name: app
     build:
       context: .
-      dockerfile: ./app/Dockerfile
+      dockerfile: ./Dockerfile
     restart: always
     networks:
       - network
@@ -26,25 +26,5 @@ services:
       - network
     stop_grace_period: 15s
 
-  jenkins:
-    container_name: jenkins
-    build:
-      context: .
-      dockerfile: ./jenkins/Dockerfile
-    volumes:
-      - jenkins_home:/var/jenkins_home
-    ports:
-      - "8080:8080"
-      - "50000:50000"
-    restart: always
-    links:
-      - https-portal
-    networks:
-      - network
-    stop_grace_period: 30s
-
 networks:
   network:
-
-volumes:
-  jenkins_home:

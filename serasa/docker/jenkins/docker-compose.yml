@@ -1,0 +1,22 @@
+version: "3.5"
+services:
+  jenkins:
+    container_name: jenkins
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    restart: always
+    networks:
+      - network
+    stop_grace_period: 30s
+
+networks:
+  network:
+
+volumes:
+  jenkins_home:
